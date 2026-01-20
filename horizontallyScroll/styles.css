@@ -1,0 +1,32 @@
+/* https://www.youtube.com/watch?v=SIC9FJEebZg&list=WL&index=8 */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --white: #fff;
+    --black: #000;
+    --color1: chocolate;
+    --color2: chartreuse;
+    --color3: cornflowerblue;
+    --color4: deeppink;
+    --color5: tomato;
+    --color6: deepskyblue;
+}
+
+#scroll-container{
+    background-color: var(--white);
+    color: var(--black);
+    display: flex;
+    /* scroll-behavior: smooth; */
+    overflow-x: auto;
+    min-height: 100vh;
+}
+
+section{
+    min-height: 100%;
+    min-width: 100%;
+}
