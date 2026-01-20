@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: deeppink;
+    color: white;
+    /* width: 500px; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.typewritter-text{
+    font-size: 16px;
+    overflow: hidden;
+    border-right: 3px solid white; /* Cursor */
+    white-space: nowrap; /*Kein Textumbruch*/
+    margin: 0 auto; /*margin links rechts wird automatisch gesetzt*/
+    animation: 
+        typing 3.5s steps(30, end) alternate infinite,
+        blink-caret .5s step-end infinite;
+            /* steps(30, end)
+            Die Timing-Funktion (sehr wichtig für den Schreibmaschinen-Effekt)
+            steps(30, end) teilt die Animation in 30 harte Schritte
+            Statt fließender Bewegung passiert die Änderung sprunghaft
+            Jeder Schritt entspricht oft einem Zeichen
+            Effekt:
+            Text erscheint Buchstabe für Buchstabe, nicht fließend.
+            end bedeutet:
+            Der Sprung passiert am Ende jedes Schritts
+            Das erste Zeichen erscheint leicht verzögert (realistischer fürs Tippen) 
+            
+            alternate => Animation wird einmal vorwärs und einmal rückwärs abgespielt
+            step-end => Timing-Funktion => Kein weicher Übergang. Der Cursor ist entweder sichtbar oder unsichtbar*/
+            
+}
+
+@keyframes typing{
+    from{ width: 0}
+    to {width: 100%}
+}
+
+@keyframes blink-caret {
+    from, to {border-color: transparent}
+    50% {border-color: white}
+}
