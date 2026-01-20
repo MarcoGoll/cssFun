@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 200px;
+    height: 200px;
+    background-color: deeppink;
+    color: white;
+    padding: 20px;
+    border-radius: 50px;
+    border: 3px solid black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    & p{
+        /* ... nach 5 Zeilen */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5; /* Anzahl Zeilen */
+        overflow: hidden;
+
+        /* WENN ES NUR EINE ZEILE IST... */
+        /* white-space: nowrap; /*Wenn es nur in einer Zeile sein soll*/ 
+        /* text-overflow: ellipsis;  /**/
+
+        /* HINWEIS: nur mit CSS gehen nur die beiden Varianten. Wenn man es von der Größe des Containers abhängig machen will, braucht man JS */
+    }
+}
+
