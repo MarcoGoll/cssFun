@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    min-height: 100vh;
+    min-width: 100%;
+}
+
+#hero{
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/piano.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: fadeOut 1s ease-out;
+    animation-timeline: view(); /*Can I USE: Global 77.96% z.B. nicht bei Firefox*/
+    /* view() bedeutet:
+    Die Animation richtet sich danach, wie das Element in den sichtbaren Bereich (Viewport) hinein- und wieder heraus­scrollt.
+    Statt animation-duration bestimmt der Scroll den Animationsfortschritt (0 % → 100 %). */
+    animation-range: exit 100px ; /*Can I USE: Global 77.96% z.B. nicht bei Firefox*/
+    /* exit bezieht sich auf den Moment, wenn das Element den Viewport verlässt.
+    exit 100px bedeutet:
+    Die Animation läuft in den letzten 100 Pixeln, bevor das Element vollständig aus dem Viewport verschwindet.
+    Typische Phasen
+    entry → Element kommt rein
+    contain → Element ist komplett sichtbar
+    exit → Element geht raus */
+}
+
+@keyframes fadeOut{
+    to{
+        opacity: 0;
+        scale: 1.5;
+        filter: blur(5px);
+    }
+}
