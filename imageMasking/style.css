@@ -1,0 +1,54 @@
+.myViewSection{
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    cursor: pointer;
+}
+
+.imgContainer:hover{
+    animation: spinZoom 1s linear infinite;
+}
+
+@keyframes spinZoom {
+    0% {
+        transform: scale(1); /* rotate(0deg);*/
+    }
+    50% {
+        transform: scale(1.2); /* rotate(180deg);*/
+    }
+    100% {
+        transform: scale(1) ; /* rotate(360deg);*/
+    }
+}
+
+.img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+}
+
+/* HIER DER PART MIT MASK */
+.img1{
+    background-image: url("../assets/bg1.jpg");
+    background-position: -135px -20px;
+}
+
+.img2{
+    background-image: url("../assets/klecks2.jpg");
+    mix-blend-mode: screen;
+    background-position: -60px 30px;
+}
