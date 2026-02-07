@@ -1,0 +1,49 @@
+/* Mir gefällt die Variante nicht so gut, weil das Bild stark gescaled wird. dadurch braucht man sehr hochauflösende Bilder die aber dann zu groß werden und die page langsam laden lässt */
+
+html{
+    height: 100dvh;
+    overflow: hidden;
+}
+
+body{
+    height: 100dvh;
+    margin: 0;
+    background-color: black;
+    perspective: 1px; /*Der Container wird zu einer 3D-Bühne, auf der Kinder echte Tiefe haben können.*/
+    transform-style: preserve-3d; /*Der Container wird zu einer 3D-Bühne, auf der Kinder echte Tiefe haben können.*/
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.section1, .section2{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.section1::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("../assets/bg3.jpg");
+    background-size: cover;
+    transform: translateZ(-1px) scale(2.2); /*push the background away from the viewport (auf der Z-Achse) - dadruch wird er kleiner und wir müssen ihn mit scale wieder größer machen*/
+    filter:blur(2px); 
+}
+
+.section2{
+    background-color: brown;
+}
+
+.text{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: clamp(16px, 15vw, 96px);
+    color: white;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+    transform: scale(1,1.1) translate(-50%);
+}
