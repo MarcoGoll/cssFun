@@ -1,0 +1,204 @@
+/* https://www.youtube.com/watch?v=16PncZlSNds */
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    min-height: 100dvh;
+    padding: 24px;
+}
+
+.section1{
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section2{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section3{
+    background-color: brown;
+}
+.section4{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.section5{
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.section6{
+    font-size: 48px;
+    background-color: white;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+
+
+h1{
+    font-size: 96px;
+    color: #FFFFFF;
+    text-shadow: 4px 3px 0px #7A7A7A;
+}
+
+.imgSection2{
+    width: 150px;
+    aspect-ratio: 1/1;
+    animation: AutoRotateAnimation;
+    animation-timeline: view(); /* Link Animation to scrolling => wird von Firefox nicht unterstützt*/
+}
+
+.fadeInBottomToTop{
+    font-size: 96px;
+    color: white;
+    animation: appearBottomToTop both; /* both => Kombination aus forwards + backwards*/
+    animation-timeline: view(); /* Link Animation to scrolling => wird von Firefox nicht unterstützt*/
+    animation-range: entry 20%  cover 100dvh;/*Start wenn zu 20 in View und endet wenn 100dvh erreicht => wann die animation startet und endet => wird von Firefox nicht unterstützt*/
+
+}
+
+.imageReveal{
+    animation: imageReveal both;
+     animation-timeline: view(50% 20%); /* Link Animation to scrolling => wird von Firefox nicht unterstützt*/
+     /* first value == 50% (midle of the screen) when animation finished / second value == when 20% of the viewport is reached, when animation starts*/
+
+}
+
+.card{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.card__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__p{
+    position: absolute;
+    top: 60%;
+    font-size: 64px;
+    color: #202c2d;
+    background-color: rgba(0, 0, 0, 0.636);
+    border-radius: 10px;
+    padding: 24px;
+    color: white;
+    transform: rotate(-3deg);
+    text-shadow: 4px 3px 0 #7A7A7A;
+}
+
+.fadeUp{
+    animation: fadeUp both;
+    animation-timeline: view(50% 20%); /* Link Animation to scrolling => wird von Firefox nicht unterstützt*/
+}
+
+/* Wenn 1 fertig strartet zwei unw. */
+.timeline-item:nth-child(1){
+    animation-range: entry 20% cover 40%;
+}
+
+.timeline-item:nth-child(2){
+    animation-range: entry 40% cover 60%;
+}
+
+.timeline-item:nth-child(3){
+    animation-range: entry 60% cover 80%;
+}
+
+.autoBlur{
+      animation: autoBlurAnimation linear both;
+      animation-timeline: view(50% auto);
+}
+
+/* #region Animations */
+@keyframes AutoRotateAnimation {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes appearBottomToTop{
+    from{
+        opacity: 0;
+        transform: translateY(500px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes imageReveal {
+    from{
+        filter: saturate(0) contrast(4) brightness(0.1) blur(5px);
+        opacity: 0;
+        scale: 0.95;
+        translate: 0 4rem;
+    }
+    to{
+        fill: none;
+        opacity: 1;
+        scale: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes fadeUp {
+    from{
+        opacity: 0;
+        transform: translateY(10px) scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+@keyframes autoBlurAnimation {
+    0%{
+        filter: blur(20px);
+    }
+    35%,45%{
+        filter: blur(0px);
+    }
+    70%{
+        filter: blur(20px);
+    }
+    100%{
+        filter: blur(0px);
+    }
+}
+
+/* #endregion */
