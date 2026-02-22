@@ -22,13 +22,21 @@ body{
     font-family: Roboto, 'Times New Roman', Times, serif;
 }
 
-h1{
+h1, h2,h3{
     text-align: center;
-    margin-bottom: 8px;
+    white-space: nowrap;
+}
+
+h1{
+    margin-bottom: 48px; 
+}
+
+h2{
+    margin-bottom: 24px;
 }
 
 main{
-    padding: 100px 160px;
+    padding: 100px 24px;
     min-height: 100dvh;
 }
 
@@ -53,7 +61,7 @@ main{
 
 .animationList__item{
     background-color: rgba(50, 48, 48, 0.485);
-    width: 400px;
+    width: clamp(280px, 20vw, 500px);
     height: 300px;
     border-radius: var(--bRadius);
     padding: 48px;
@@ -67,13 +75,16 @@ main{
     
     .item__text{
         margin-bottom: 32px;
+        text-align: center;
     }
 
     .item__box{
+        cursor: pointer;
         width: 100px;
         height: 100px;
         border-radius: var(--bRadius);
         background-color: var(--clr-green-light);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
 }
 /* #endregion*/

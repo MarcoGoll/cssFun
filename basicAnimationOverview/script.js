@@ -1,7 +1,6 @@
-/* #region Animations */
-
-/* #region translation */
-.translation{
+class CSSSnippets {
+    static translation =
+        `.translation{
     animation: translation 2s ease-in-out infinite alternate;
 }
 
@@ -12,11 +11,9 @@
     to{
         transform: translateX(100px);
     }
-}
-
-/* #endregion */
-/* #region rotation */
-.rotation{
+}`;
+    static rotation =
+        `.rotation{
     animation: rotation 2s linear infinite;
 }
 
@@ -27,10 +24,9 @@
     to{
         transform: rotate(360deg);
     }
-}
-/* #endregion */
-/* #region scaling */
-.scaling{
+}`;
+    static scaling =
+        `.scaling{
     animation: scaling 2s ease-in-out infinite;
 }
 
@@ -41,11 +37,9 @@
     50%{
         transform: scale(1.2);
     }
-}
-
-/* #endregion */
-/* #region skewing */
-.skewing{
+}`;
+    static skewing =
+        `.skewing{
     animation: skewing 2s ease-in-out infinite;
 }
 
@@ -57,11 +51,9 @@
     50%{
         transform: skew(15deg, 15deg); /* skews the element 15 degrees along the x-axis, and 15 degrees along the y-axis */
     }
-}
-
-/* #endregion */
-/* #region morphing */
-.morphing{
+}`;
+    static morphing =
+        `.morphing{
     animation: morphing 2s ease-in-out infinite;
 }
 
@@ -75,10 +67,9 @@
         height: 100px;
         border-radius: 50%;
     }
-}
-/* #endregion */
-/* #region opacity */
-.opacity{
+}`;
+    static opacity =
+        `.opacity{
     animation: opacity 2s ease-in-out infinite alternate;
 }
 
@@ -89,11 +80,9 @@
     100%{
         opacity: 1;
     }
-}
-
-/* #endregion */
-/* #region blur */
-.blur{
+}`;
+    static blur =
+        `.blur{
     animation: blur 2s ease-in-out infinite alternate;
 }
 
@@ -104,10 +93,9 @@
     50%{
         filter: blur(5px);
     }
-}
-/* #endregion */
-/* #region glow */
-.glow{
+}`;
+    static glow =
+        `.glow{
     animation: glow 2s ease-in-out infinite;
 }
 
@@ -118,10 +106,9 @@
     50%{
         box-shadow:0px 0px 10px deeppink;
     }
-}
-/* #endregion */
-/* #region bgColor */
-.bgColor{
+}`;
+    static bgColor =
+        `.bgColor{
     animation: bgColor 2s ease-in-out infinite alternate;
 }
 
@@ -132,10 +119,9 @@
     100%{
         background-color: deeppink;
     }
-}
-/* #endregion */
-/* #region mask */
-.maskParent{
+}`;
+    static mask =
+        `.maskParent{
     position: relative;
 
 }
@@ -154,10 +140,9 @@
     100%{
         clip-path: circle(120% at bottom);
     }
-}
-/* #endregion */
-/* #region perspektive */
-.perspektiveParent{
+}`;
+    static perspektive =
+        `.perspektiveParent{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,9 +164,43 @@
     100%{
         transform: rotateY(-45deg) translateZ(30px);
     }
-}
-/* #endregion */
-/* #endregion*/
+}`;
 
+    static copyToClipboard(type) {
+        const code = CSSSnippets[type];
+        if (!code) {
+            console.warn(`Kein Snippet für "${type}" gefunden.`);
+            return;
+        }
+        navigator.clipboard.writeText(code).then(() => {
+            CSSSnippets.showCopiedMessage();
+        });
+    }
+
+    static showCopiedMessage() {
+        const msg = document.createElement("div");
+        msg.textContent = "Copied!";
+        msg.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #eaff00;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            z-index: 9999;
+            `;
+
+        document.body.appendChild(msg);
+
+        setTimeout(() => {
+            msg.style.opacity = "0";
+            setTimeout(() => msg.remove(), 500);
+        }, 2500);
+    }
+}
 
 
