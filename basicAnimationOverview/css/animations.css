@@ -1,0 +1,48 @@
+/* #region Animations */
+
+/* #region translation */
+.translation{
+    animation: translation 2s ease-in-out infinite alternate;
+}
+
+@keyframes translation {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(100px);
+    }
+}
+
+/* #endregion */
+/* #region rotation */
+.rotation{
+    animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+/* #endregion */
+/* #region scaling */
+.scaling{
+    animation: scaling 2s ease-in-out infinite;
+}
+
+@keyframes scaling {
+    0%,100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+}
+
+/* #endregion */
+
+/* #endregion */

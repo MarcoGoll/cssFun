@@ -1,0 +1,80 @@
+/* #region css reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /*color */
+    --clr-green-light: rgb(37, 126, 59);
+    --clr-green-dark: rgb(11, 69, 25);
+
+    /* adjustments */
+    --bRadius: 8px;
+}
+/* #endregion*/
+
+/* #region standards */
+body{
+    background-color: rgb(22, 21, 21);
+    color: white;
+    font-family: Roboto, 'Times New Roman', Times, serif;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+main{
+    padding: 100px 160px;
+    min-height: 100dvh;
+}
+
+.content-wrapper{
+    max-width: 1920px;
+}
+/* #endregion*/
+
+/* #region Cards */
+#sectionBasicAnimationList{
+    display: flex;
+    justify-content: center;
+}
+
+.animationList{
+    border-radius: var(--bRadius);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.animationList__item{
+    background-color: rgba(50, 48, 48, 0.485);
+    width: 400px;
+    height: 300px;
+    border-radius: var(--bRadius);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .item__headline{
+        font-weight: bold;
+    }
+    
+    .item__text{
+        margin-bottom: 32px;
+    }
+
+    .item__box{
+        width: 100px;
+        height: 100px;
+        border-radius: var(--bRadius);
+        background-color: var(--clr-green-light);
+    }
+}
+/* #endregion*/
+
