@@ -7,8 +7,9 @@
 
 :root{
     /*color */
-    --clr-green-light: rgb(37, 126, 59);
-    --clr-green-dark: rgb(11, 69, 25);
+    --clr-green-light: #257e3b;
+    --clr-green-dark: #0b4519;
+    --clr-green-gradient:linear-gradient(90deg,rgba(37, 126, 59, 1) 50%, rgba(11, 69, 25, 1) 100%);;
 
     /* adjustments */
     --bRadius: 8px;
@@ -108,7 +109,7 @@ main{
         width: 100px;
         height: 100px;
         border-radius: var(--bRadius);
-        background-color: var(--clr-green-light);
+        background: var(--clr-green-gradient);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
 }
