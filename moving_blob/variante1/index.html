@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background: #0a0a0f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Georgia", serif;
+        overflow: hidden;
+      }
+
+      .scene {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        filter: url(#goo);
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff6b6b, #ee00ff);
+      }
+
+      .blob-main {
+        width: 160px;
+        height: 160px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 3s ease-in-out infinite;
+      }
+
+      .blob-1 {
+        width: 80px;
+        height: 80px;
+        top: 20px;
+        left: 80px;
+        animation: orbit1 4s ease-in-out infinite;
+      }
+      .blob-2 {
+        width: 60px;
+        height: 60px;
+        top: 80px;
+        right: 10px;
+        animation: orbit2 5s ease-in-out infinite;
+      }
+      .blob-3 {
+        width: 70px;
+        height: 70px;
+        bottom: 20px;
+        left: 60px;
+        animation: orbit3 3.5s ease-in-out infinite;
+      }
+      .blob-4 {
+        width: 50px;
+        height: 50px;
+        bottom: 60px;
+        right: 40px;
+        animation: orbit4 4.5s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
+      @keyframes orbit1 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(20px, 30px);
+        }
+      }
+      @keyframes orbit2 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(-25px, 20px);
+        }
+      }
+      @keyframes orbit3 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(30px, -20px);
+        }
+      }
+      @keyframes orbit4 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(-20px, -30px);
+        }
+      }
+
+      label {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.15);
+        font-size: 11px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+
+      svg {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SVG Filter für den Goo-Effekt -->
+    <svg>
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8"
+            result="goo"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <div class="scene">
+      <div class="blob blob-main"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+    </div>
+
+    <label>CSS Goo Effect</label>
+  </body>
+</html>
+
+<!-- Erklärung -->
+<!-- Der Filter macht 2 Dinge nacheinander:
+
+1. Alles wird unscharf gemacht
+Die Kreise sehen so aus:
+🔴 → 🌫️ (weiche, verschwommene Kreise)
+
+2. Ein Kontrast-Regler dreht voll auf
+Stell dir vor du drehst den Kontrast in einem Bildbearbeitungsprogramm auf Maximum:
+
+Was hell war → wird weiß
+Was dunkel war → wird schwarz
+Nichts dazwischen
+
+Das Ergebnis: Die weichen Ränder "knallen" wieder zu harten Kanten zusammen.
+
+Der Trick: Wenn zwei Kreise sich nah sind, überlappen sich ihre Unschärfen. Diese Überlappung ist hell genug um nach dem Kontrast-Boost zu überleben — die Kreise verschmelzen zu einem Klecks.
+Weit voneinander getrennt → keine Überlappung → zwei Kreise
+Nah beieinander → Unschärfe addiert sich → ein Klecks
+
+Das ist buchstäblich der ganze Trick. Blur + extremer Kontrast = organisches Verschmelzen. -->
